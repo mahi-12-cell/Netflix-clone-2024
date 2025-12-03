@@ -1,10 +1,11 @@
 
 import './App.css';
+import Home from './pages/Home/Home';
 
 function App() {
   return (
     <div className="App">
-     <h1>Hello Netflix Clone 2024</h1>
+    <Home/>
     </div>
   );
 }
