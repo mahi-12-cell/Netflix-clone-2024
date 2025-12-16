@@ -89,7 +89,7 @@ function Footer() {
           <ul>
             <li>Media Center</li>
             <li>Privacy</li>
-            <li>Contact Us</li>
+            <li>Contact Us</li>\
           </ul>
         </div>
       </div>

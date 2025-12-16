@@ -1,25 +1,24 @@
-/* Main container */
-
-/* Full width background of the header */
+/* ===== HEADER ===== */
 .header_outer_container {
   width: 100%;
+  height: 70px;              /* FIXED HEIGHT */
   background-color: #111;
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 100;
+  z-index: 1000;
 }
 
-/* INNER container */
+/* INNER HEADER */
 .header_container {
-  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 40px;
+  padding: 0 40px;
 }
 
-/* LEFT LIST + RIGHT LIST */
+/* LEFT & RIGHT MENUS */
 .header_left ul,
 .header_right ul {
   display: flex;
@@ -36,13 +35,51 @@
   cursor: pointer;
 }
 
-/* Fix image alignment */
+/* LINKS */
+.header_left a {
+  color: white;
+  text-decoration: none;
+}
+
+/* LOGO */
 .header_left img {
   display: block;
 }
 
-/* Icons color */
+/* ICONS */
 .header_right svg {
   color: white;
-  font-size: 28px;
+  font-size: 26px;
+}
+
+/* ===== SEARCH BOX ===== */
+.search_box {
+  position: absolute;
+  top: 75px;        /* BELOW HEADER */
+  right: 160px;
+}
+
+.search_box input {
+  background: black;
+  border: 1px solid white;
+  color: white;
+  padding: 6px 10px;
+  outline: none;
+}
+
+/* ===== NOTIFICATION BOX ===== */
+.notification_box {
+  position: absolute;
+  top: 75px;        /* BELOW HEADER */
+  right: 100px;
+  background: #111;
+  color: white;
+  padding: 10px;
+  width: 200px;
+  border: 1px solid gray;
+}
+
+/* ===== IMPORTANT FIX FOR BANNER ===== */
+body {
+  padding-top: 70px;   /* PREVENT BANNER CROPPING */
 }

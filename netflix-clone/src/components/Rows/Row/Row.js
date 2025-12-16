@@ -22,16 +22,28 @@ const Row = ({ title, fetchUrl, isLargeRow }) => {
     fetchData();
   }, [fetchUrl]);
 
-  const handleClick = (movie) => {
-    if (trailerUrl) {
-      setTrailerUrl("");
-    } else {
-      movieTrailer(
+  // 
+  const handleClick = async (movie) => {
+    try {
+      // If trailer is already open → close it
+      if (trailerUrl) {
+        setTrailerUrl("");
+        return;
+      }
+
+      // Search for the movie trailer
+      const url = await movieTrailer(
         movie?.title || movie?.name || movie?.original_name || ""
-      ).then((url) => {
-        const urlParams = new URLSearchParams(new URL(url).search);
-        setTrailerUrl(urlParams.get("v"));
-      });
+      );
+
+      // Extract the "v" YouTube video id from the URL
+      const urlParams = new URLSearchParams(new URL(url).search);
+      const videoId = urlParams.get("v");
+
+      // Store video ID in state → this will show YouTube player
+      setTrailerUrl(videoId);
+    } catch (error) {
+      console.log("Trailer not found:", error);
     }
   };
 
